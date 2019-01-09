@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-top: 1rem;
+}
+
+h3 {
+    font-size: 1.8rem;
+    color: #555;
+}
+
+.frame {
+    margin: 10rem auto;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.frame p {
+    margin-top: .75rem;
+}
+
+.frame button {
+    border: none;
+    padding: .75rem;
+    color: #FFF;
+    transition: all 200ms;
+    background: linear-gradient(to right, rgb(20, 79, 190), rgb(4, 62, 139));
+}
+
+.frame button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 1rem 2rem rgba(0,0,0, 0.2);
+}
+
+.frame button:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.decisions-list {
+    margin: 1.5rem;
+    text-align: center;
+    list-style: none;
+    font-size: 1.5rem;
+}
+
+.decisions-item {
+    margin-top: .75rem;
+}
+
+.frame form {
+    display: flex;
+    flex-direction: column;
+}
+
+.frame form > * {
+    margin-top: 1rem;
+}
