@@ -1,0 +1,26 @@
+
+import React from 'react'
+import { Route, Switch } from 'react-router-dom'
+
+import Header from '../components/Header'
+
+import ExpenseDashboard from '../components/ExpenseDashboaard'
+import AddExpense from '../components/AddExpense'
+import EditExpense from '../components/EditExpense'
+import Help from '../components/Help'
+import NotFound from '../components/404'
+
+const AppRouter = () => (
+        <div>
+            <Header />
+            <Switch>
+                <Route path="/" exact={true} component={ExpenseDashboard}/>
+                <Route path="/create" component={AddExpense}/>
+                <Route path="/edit" component={EditExpense}/>
+                <Route path="/help" component={Help}/>
+                <Route component={NotFound}/>
+            </Switch>
+        </div>
+)
+
+export default AppRouter
