@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 // Importerar actions för att ändra state
-import { setTextFilter } from '../store/actions/filters'
+import { setTextFilter, sortByDate, sortByAmount } from '../store/actions/filters'
 
 const ExpenseListFilters = (props) => (
     <div>
@@ -11,6 +11,16 @@ const ExpenseListFilters = (props) => (
                 // props.dispatch passas in genom redux
                 props.dispatch(setTextFilter(e.target.value))
             }} />
+
+        <select 
+            value={props.filters.sortBy}
+            onChange={(e) => {
+                if (e.target.value === 'date') props.dispatch(sortByDate())
+                if (e.target.value === 'amount') props.dispatch(sortByAmount())
+            }}>
+            <option value='date'>Date</option>
+            <option value='amount'>Amount</option>
+        </select>
     </div>
 )
 

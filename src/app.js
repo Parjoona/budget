@@ -15,9 +15,10 @@ import { setTextFilter } from './store/actions/filters'
 
 const store = configureStore()
 
-store.dispatch(addExpense({ description: 'Water bill' }))
-store.dispatch(addExpense({ description: 'Gas bill' }))
-store.dispatch(setTextFilter('bill'))
+store.dispatch(addExpense({ description: 'Water bill', amount: 4500 }))
+store.dispatch(addExpense({ description: 'Gas bill', createdAt: 200 }))
+store.dispatch(addExpense({ description: 'Rent', amount: 192000 }))
+// store.dispatch(setTextFilter('bill'))
 
 ReactDOM.render((
     <Provider store={store}>
