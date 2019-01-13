@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import moment from 'moment'
+import { SingleDatePicker } from 'react-dates'
+import 'react-dates/lib/css/_datepicker.css'
 
 export default class ExpenseForm extends Component {
     state = {
         description: '',
         amount: '',
-        note: ''
+        note: '',
+        createdAt: moment(),
+        calenderFocused: false
     }
 
     onDescriptionChange = (e) => {
@@ -25,6 +30,14 @@ export default class ExpenseForm extends Component {
         }
     }
 
+    onDateChange = (createdAt) => {
+        this.setState(() => ({ createdAt }))
+    }
+
+    onFocusChange = ({ focused }) => {
+        this.setState(() => ({ calenderFocused: focused}))
+    }
+
     render() {
         return (
             <form>
@@ -32,18 +45,30 @@ export default class ExpenseForm extends Component {
                     type="text" 
                     placeholder="Description" 
                     value={this.state.description}
-                    onChange={this.onDescriptionChange}/>
+                    onChange={this.onDescriptionChange}
+                />
                 
                 <input 
                     type="number" 
                     placeholder="Amount" 
                     value={this.state.amount}
-                    onChange={this.onAmountChange} />
+                    onChange={this.onAmountChange} 
+                />
+
+                <SingleDatePicker
+                    date={this.state.createdAt}
+                    onDateChange={this.onDateChange}
+                    focused={this.state.calenderFocused}
+                    onFocusChange={this.onFocusChange}
+                    numberOfMonths={1}
+                    isOutsideRange={() => false}
+                />
 
                 <textarea 
                     placeholder="Add a note for expense"
                     value={this.state.note}
-                    onChange={this.onNoteChange}></textarea>
+                    onChange={this.onNoteChange}>
+                </textarea>
                 
                     <button>Submit</button>
             </form>
