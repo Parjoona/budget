@@ -11,7 +11,7 @@ import './styles/main.scss'
 // Redux imports
 import configureStore from './store/configureStore'
 import { addExpense } from './store/actions/expenses'
-import { setTextFilter } from './store/actions/filters' 
+// import { setTextFilter } from './store/actions/filters' 
 
 const store = configureStore()
 
