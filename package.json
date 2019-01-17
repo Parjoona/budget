@@ -11,6 +11,7 @@
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
     "css-loader": "^2.1.0",
+    "enzyme-to-json": "3.0.1",
     "moment": "2.18.1",
     "node-sass": "^4.11.0",
     "normalize.css": "^8.0.1",
@@ -31,11 +32,14 @@
     "build": "webpack",
     "dev": "webpack-dev-server",
     "webpack:watch": "webpack --watch",
-    "test": "jest"
+    "test": "jest --config=jest.config.json"
   },
   "devDependencies": {
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "enzyme": "3.0.0",
+    "enzyme-adapter-react-16": "1.0.0",
     "jest": "20.0.4",
+    "raf": "3.3.2",
     "webpack-cli": "^3.2.1"
   }
 }
