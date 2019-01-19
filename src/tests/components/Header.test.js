@@ -7,7 +7,7 @@ import Header from '../../components/Header'
 
 ///////////////////////////////////////////
 /////// Shallow rendering
-///////
+// Takes a look at the component
 /////// Snapshot rendering
 // Tracks changes in data from components
 
