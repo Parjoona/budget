@@ -57,6 +57,30 @@ describe('ExpenseForm interactions', () => {
 
       expect(wrapper.state('note')).toBe(value)
   })
+
+  test('Should set amount if valid input', () => {
+    const value = "23.50"
+    const wrapper = shallow(<ExpenseForm />)
+    wrapper.find('input')
+      .at(1)
+      .simulate('change', {
+        target: { value }
+      })
+
+      expect(wrapper.state('amount')).toBe(value)
+  })
+
+  test('Should set amount if invalid input', () => {
+    const value = "23.550"
+    const wrapper = shallow(<ExpenseForm />)
+    wrapper.find('input')
+      .at(1)
+      .simulate('change', {
+        target: { value }
+      })
+
+      expect(wrapper.state('amount')).toBe('')
+  })
 })
 
 
