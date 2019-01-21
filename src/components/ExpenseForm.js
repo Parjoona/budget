@@ -38,7 +38,7 @@ export default class ExpenseForm extends Component {
     }
 
     onFocusChange = ({ focused }) => {
-        this.setState(() => ({ calenderFocused: focused}))
+        this.setState(() => ({ calenderFocused: focused }))
     }
 
     onSubmit = (e) => {
@@ -46,7 +46,7 @@ export default class ExpenseForm extends Component {
         if (!this.state.description || !this.state.amount) {
             this.setState(() => ({ error: 'Provide description or amount'}))
         } else {
-            this.setState(() => ({ error: ''}))
+            this.setState(() => ({ error: '' }))
             this.props.onSubmit({
                 description: this.state.description,
                 amount: parseFloat(this.state.amount, 10) * 100,
