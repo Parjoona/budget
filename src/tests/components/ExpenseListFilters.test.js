@@ -32,3 +32,23 @@ test('Should render ExpenseListFilters with alt-data correctly', () => {
   })
   expect(wrapper).toMatchSnapshot()
 })
+
+test('Should handle text change', () => {
+
+})
+
+test('Should sort by date', () => {
+
+})
+
+test('Should sort by amount', () => {
+
+})
+
+test('Should handle date change', () => {
+
+})
+
+test('Should handle date focus changes', () => {
+
+})
