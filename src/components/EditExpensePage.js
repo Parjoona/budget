@@ -3,6 +3,17 @@ import { connect } from 'react-redux'
 import ExpenseForm from './ExpenseForm'
 import { editExpense, removeExpense } from '../store/actions/expenses'
 
+const mapStateToProps = (state, props) => {
+    return {
+        expense: state.expenses.find((expense) => expense.id === props.match.params.id)
+    }
+}
+
+const mapDispatchToProps = (dispatch, props) => ({
+    editExpense: (id, expense) => dispatch(editExpense(id, expense)),
+    removeExpense: () => dispatch(removeExpense(data))
+})
+
 export class EditExpensePage extends Component {
     onSubmit = (expense) => {
         this.props.editExpense(this.props.expense.id, expense)
@@ -25,16 +36,5 @@ export class EditExpensePage extends Component {
         )
     }
 }
-
-const mapStateToProps = (state, props) => {
-    return {
-        expense: state.expenses.find((expense) => expense.id === props.match.params.id)
-    }
-}
-
-const mapDispatchToProps = (dispatch, props) => ({
-    editExpense: (id, expense) => dispatch(editExpense(id, expense)),
-    removeExpense: () => dispatch(removeExpense(data))
-})
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditExpensePage)
