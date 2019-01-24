@@ -22,8 +22,18 @@ module.exports = (env) => {
                 test: /\.s?css$/,
                 use: CSSExtract.extract({
                     use: [
-                        'css-loader',
-                        'sass-loader'
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        },
+                        {
+                            loader: 'sass-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        }
                     ]
                 })
             }]
@@ -31,7 +41,7 @@ module.exports = (env) => {
         plugins: [
             CSSExtract
         ],
-        devtool: isProd ? 'source-map' : 'cheap-module-eval-source-map',
+        devtool: isProd ? 'source-map' : 'inline-source-map',
         devServer: {
             contentBase: path.join(__dirname, 'public'),
             historyApiFallback: true
