@@ -26,9 +26,11 @@ module.exports = (env) => {
                         'sass-loader'
                     ]
                 })
-            }
-        ]
+            }]
         },
+        plugins: [
+            CSSExtract
+        ],
         devtool: isProd ? 'source-map' : 'cheap-module-eval-source-map',
         devServer: {
             contentBase: path.join(__dirname, 'public'),
