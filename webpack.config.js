@@ -1,35 +1,40 @@
-// ENTRY to OUTPUT
-
 const path = require('path');
+const ExtractTextPlguin = require('extract-text-webpack-plugin')
 
-module.exports = {
-    entry: './src/app.js',
-    output: {
-        path: path.join(__dirname, 'public'),
-        filename: 'bundle.js'
-    },
-    module: {
-        rules: [
-        {
-            loader: 'babel-loader',
-            test: /\.js$/,
-            exclude: /node_modules/
+module.exports = (env) => {
+    const isProd = env === 'production'
+    const CSSExtract = new ExtractTextPlguin('styles.css')
+
+    return {
+        entry: './src/app.js', // ENTRY to OUTPUT
+        output: {
+            path: path.join(__dirname, 'public'),
+            filename: 'bundle.js'
         },
-        {
-            test: /\.s?css$/,
-            use: [
-                'style-loader',
-                'css-loader',
-                'sass-loader'
-            ]
+        module: {
+            rules: [
+            {
+                loader: 'babel-loader',
+                test: /\.js$/,
+                exclude: /node_modules/
+            },
+            {
+                test: /\.s?css$/,
+                use: CSSExtract.extract({
+                    use: [
+                        'css-loader',
+                        'sass-loader'
+                    ]
+                })
+            }
+        ]
+        },
+        devtool: isProd ? 'source-map' : 'cheap-module-eval-source-map',
+        devServer: {
+            contentBase: path.join(__dirname, 'public'),
+            historyApiFallback: true
         }
-    ]
-    },
-    devtool: 'cheap-module-eval-source-map',
-    devServer: {
-        contentBase: path.join(__dirname, 'public'),
-        historyApiFallback: true
     }
+    
+    // LOADER - Costumizes the behavior for a file
 }
-
-// LOADER - Costumizes the behavior for a file
