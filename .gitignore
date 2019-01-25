@@ -80,3 +80,8 @@ typings/
 .dynamodb/
 
 *__snapshots__
+
+public/bundle.js
+public/bundle.js.map
+public/styles.css
+public/styles.css.map
