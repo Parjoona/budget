@@ -12,31 +12,30 @@ module.exports = (env) => {
             filename: 'bundle.js'
         },
         module: {
-            rules: [
-            {
-                loader: 'babel-loader',
-                test: /\.js$/,
-                exclude: /node_modules/
-            },
-            {
-                test: /\.s?css$/,
-                use: CSSExtract.extract({
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                sourceMap: true
+            rules: [{
+                    loader: 'babel-loader',
+                    test: /\.js$/,
+                    exclude: /node_modules/
+                },
+                {
+                    test: /\.s?css$/,
+                    use: CSSExtract.extract({
+                        use: [{
+                                loader: 'css-loader',
+                                options: {
+                                    sourceMap: true
+                                }
+                            },
+                            {
+                                loader: 'sass-loader',
+                                options: {
+                                    sourceMap: true
+                                }
                             }
-                        },
-                        {
-                            loader: 'sass-loader',
-                            options: {
-                                sourceMap: true
-                            }
-                        }
-                    ]
-                })
-            }]
+                        ]
+                    })
+                }
+            ]
         },
         plugins: [
             CSSExtract
@@ -47,6 +46,6 @@ module.exports = (env) => {
             historyApiFallback: true
         }
     }
-    
+
     // LOADER - Costumizes the behavior for a file
 }
