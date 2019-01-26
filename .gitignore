@@ -83,4 +83,5 @@ typings/
 
 public/dist/
 
-src/firebase/config.js
+.env.test
+.env.development
