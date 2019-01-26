@@ -82,3 +82,5 @@ typings/
 *__snapshots__
 
 public/dist/
+
+src/firebase/config.js

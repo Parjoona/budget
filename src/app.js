@@ -12,7 +12,9 @@ import 'react-dates/lib/css/_datepicker.css'
 // Redux imports
 import configureStore from './store/configureStore'
 import { addExpense } from './store/actions/expenses'
-// import { setTextFilter } from './store/actions/filters' 
+// import { setTextFilter } from './store/actions/filters'
+
+import './firebase/firebase'
 
 const store = configureStore()
 
