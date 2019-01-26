@@ -4,12 +4,12 @@ import { shallow } from 'enzyme'
 import { AddExpensePage } from '../../components/AddExpensePage'
 import expenses from '../store/fixtures/expenses'
 
-let onSubmit, history, wrapper
+let startAddExpense, history, wrapper
 
 beforeEach(() => {
-  onSubmit = jest.fn()
+  startAddExpense = jest.fn()
   history = { push: jest.fn() }
-  wrapper = shallow(<AddExpensePage onSubmit={onSubmit} history={history} />)
+  wrapper = shallow(<AddExpensePage startAddExpense={startAddExpense} history={history} />)
 })
 
 test('Should render AddExpensePage correctly', () => {
@@ -22,5 +22,5 @@ test('Should handle onSubmit', () => {
     .prop('onSubmit')(expenses[2])
 
   expect(history.push).toHaveBeenLastCalledWith('/')
-  expect(onSubmit).toHaveBeenLastCalledWith(expenses[2])
+  expect(startAddExpense).toHaveBeenLastCalledWith(expenses[2])
 })
