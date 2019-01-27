@@ -9,12 +9,13 @@ import EditExpense from '../components/EditExpensePage'
 import Help from '../components/Help'
 import NotFound from '../components/404'
 import PrivateRoute from './PrivateRoute'
+import PublicRoute from './PublicRoute'
 
 const AppRouter = () => (
     <div>
         <Header />
         <Switch>
-            <Route path="/" exact={true} component={LoginPage}/>
+            <PublicRoute path="/" exact={true} component={LoginPage}/>
             <PrivateRoute path="/dashboard" component={ExpenseDashboard}/>
             <PrivateRoute path="/create" component={AddExpense}/>
             <PrivateRoute path="/edit/:id" component={EditExpense}/>
