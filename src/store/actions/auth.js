@@ -7,3 +7,9 @@ export const startLogin = () => {
       .signInWithPopup(googleProvider)
   }
 }
+
+export const startLogout = () => {
+  return () => {
+    return firebase.auth().signOut()
+  }
+}
