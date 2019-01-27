@@ -11,22 +11,25 @@ import 'react-dates/lib/css/_datepicker.css'
 
 // Redux imports
 import configureStore from './store/configureStore'
-import { addExpense } from './store/actions/expenses'
+import { startSetExpenses } from './store/actions/expenses'
 // import { setTextFilter } from './store/actions/filters'
 
 import './firebase/firebase'
 
 const store = configureStore()
 
-store.dispatch(addExpense({ description: 'Water bill', amount: 4500 }))
-store.dispatch(addExpense({ description: 'Gas bill', createdAt: 200 }))
-store.dispatch(addExpense({ description: 'Rent', amount: 192000 }))
-// store.dispatch(setTextFilter('bill'))
-
 ReactDOM.render((
-    <Provider store={store}>
-        <BrowserRouter>
-            <AppRouter />
-        </BrowserRouter>
-    </Provider>
+    <p>Loading ...</p>
 ), document.getElementById('app'))
+
+store
+    .dispatch(startSetExpenses())
+    .then(() => {
+        ReactDOM.render((
+            <Provider store={store}>
+                <BrowserRouter>
+                    <AppRouter />
+                </BrowserRouter>
+            </Provider>
+        ), document.getElementById('app'))
+    })
