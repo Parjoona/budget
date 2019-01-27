@@ -14,7 +14,7 @@ import configureStore from './store/configureStore'
 import { startSetExpenses } from './store/actions/expenses'
 // import { setTextFilter } from './store/actions/filters'
 
-import './firebase/firebase'
+import { firebase } from './firebase/firebase'
 
 const store = configureStore()
 
@@ -33,3 +33,9 @@ store
             </Provider>
         ), document.getElementById('app'))
     })
+
+firebase
+    .auth()
+    .onAuthStateChanged((user) => {
+    user ? console.log('Log in') : console.log('Log out') 
+})

@@ -1,21 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { connect } from 'react-redux'
+import { startLogin } from '../store/actions/auth'
 
-export default class LoginPage extends Component {
-  state = {
 
-  }
+export const LoginPage = ({ startLogin }) => (
+  <button onClick={startLogin}>Login</button>
+)
 
-  onSubmit = (e) => {
-    e.preventDefault()
-  }
+const mapDispatchToProps = dispatch => ({
+  startLogin: () => dispatch(startLogin())
+})
 
-  render() {
-    return (
-      <form onSubmit={this.onSubmit}>
-        <input type="text" placeholder="Login name" />
-        <input type="password" />
-        <button>Submit</button>
-      </form>
-    )
-  }
-}
+export default connect(undefined, mapDispatchToProps)(LoginPage)
