@@ -13,7 +13,7 @@ import 'react-dates/lib/css/_datepicker.css'
 // Redux imports
 import configureStore from './store/configureStore'
 import { startSetExpenses } from './store/actions/expenses'
-// import { setTextFilter } from './store/actions/filters'
+import { login, logout } from './store/actions/auth'
 
 import { firebase } from './firebase/firebase'
 
@@ -42,6 +42,7 @@ firebase
     .auth()
     .onAuthStateChanged((user) => {
     if (user) {
+        store.dispatch(login(user.uid))
         store
             .dispatch(startSetExpenses())
             .then(() => {
@@ -49,6 +50,7 @@ firebase
                 if (history.location.pathname === '/') history.push('/dashboard')
             })
     } else {
+        store.dispatch(logout())
         renderApp()
         history.push('/')
     }
