@@ -13,7 +13,6 @@ import PublicRoute from './PublicRoute'
 
 const AppRouter = () => (
     <div>
-        <Header />
         <Switch>
             <PublicRoute path="/" exact={true} component={LoginPage}/>
             <PrivateRoute path="/dashboard" component={ExpenseDashboard}/>
