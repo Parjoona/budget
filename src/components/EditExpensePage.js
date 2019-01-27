@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ExpenseForm from './ExpenseForm'
-import { editExpense, removeExpense } from '../store/actions/expenses'
+import { editExpense, startRemoveExpense } from '../store/actions/expenses'
 
 const mapStateToProps = (state, props) => {
     return {
@@ -11,7 +11,7 @@ const mapStateToProps = (state, props) => {
 
 const mapDispatchToProps = (dispatch, props) => ({
     editExpense: (id, expense) => dispatch(editExpense(id, expense)),
-    removeExpense: () => dispatch(removeExpense(data))
+    startRemoveExpense: () => dispatch(startRemoveExpense(data))
 })
 
 export class EditExpensePage extends Component {
@@ -21,7 +21,7 @@ export class EditExpensePage extends Component {
     }
 
     onRemove = () => {
-        this.props.removeExpense({ id: this.props.expense.id})
+        this.props.startRemoveExpense({ id: this.props.expense.id})
         this.props.history.push('/')
     }
 
