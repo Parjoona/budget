@@ -4,7 +4,13 @@ import { startLogin } from '../store/actions/auth'
 
 
 export const LoginPage = ({ startLogin }) => (
-  <button onClick={startLogin}>Login</button>
+  <div className="box-layout">
+    <div className="box-layout__box">
+      <h1>Budget application</h1>
+      <p>Time to get expenses in order</p>
+      <button onClick={startLogin}>Login</button>
+    </div>
+  </div>
 )
 
 const mapDispatchToProps = dispatch => ({
