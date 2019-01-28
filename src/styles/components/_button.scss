@@ -1,0 +1,10 @@
+.button {
+  &__login {
+    background: color(secondary, light);
+    color: white;
+    border: none;
+    padding: .75rem;
+    font-weight: 300;
+    font-size: 1.8rem;
+  }
+}
