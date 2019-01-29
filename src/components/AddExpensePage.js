@@ -12,8 +12,14 @@ export class AddExpensePage extends Component {
     render() {
         return (
             <div>
-                This is expensePage
+            <div className="page-header">
+                <div className="container">
+                    <h1 className="page-header__title">Add Expense</h1>
+                </div>
+            </div>
+            <div className="container">
                 <ExpenseForm onSubmit={this.onSubmit}/>
+            </div>
             </div>
         )
     }
