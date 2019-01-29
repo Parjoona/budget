@@ -19,7 +19,10 @@ module.exports = (env) => {
     const CSSExtract = new ExtractTextPlguin('styles.css')
 
     return {
-        entry: './src/app.js', // ENTRY to OUTPUT
+        entry: [
+            'babel-polyfill',
+            './src/app.js'
+    ], // ENTRY to OUTPUT
         output: {
             path: path.join(__dirname, 'public', 'dist'),
             filename: 'bundle.js'
