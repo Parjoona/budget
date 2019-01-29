@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { Router } from 'react-router-dom'
 import AppRouter from './routers/AppRouter'
 import createHistory from 'history/createBrowserHistory'
+import Loader from './components/Loader'
 
 // CSS
 import 'normalize.css/normalize.css'
@@ -35,7 +36,7 @@ const renderApp = () => {
 }
 
 ReactDOM.render((
-    <p>Loading ...</p>
+    <Loader />
 ), document.getElementById('app'))
 
 firebase
