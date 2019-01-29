@@ -63,6 +63,7 @@ export default class ExpenseForm extends Component {
                 <form onSubmit={this.onSubmit}>
                     <input 
                         type="text" 
+                        className="text-input"
                         placeholder="Description" 
                         value={this.state.description}
                         onChange={this.onDescriptionChange}
@@ -70,6 +71,7 @@ export default class ExpenseForm extends Component {
                     
                     <input 
                         type="number" 
+                        className="text-input"
                         placeholder="Amount" 
                         value={this.state.amount}
                         onChange={this.onAmountChange} 
@@ -85,12 +87,13 @@ export default class ExpenseForm extends Component {
                     />
 
                     <textarea 
+                        className="textarea"
                         placeholder="Add a note for expense"
                         value={this.state.note}
                         onChange={this.onNoteChange}>
                     </textarea>
                     
-                    <button>Submit</button>
+                    <button className="button__blue">Submit</button>
                 </form>
             </div>
         )

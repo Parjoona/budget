@@ -1,0 +1,18 @@
+.input-group {
+  @include query-for(desktop) {
+    flex-direction: row;
+  }
+
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: 1rem;
+
+  &__item {
+    @include query-for(desktop) {
+      margin: 0 1rem 0 0;
+    }
+
+    margin-bottom: 1rem;
+  }
+}
