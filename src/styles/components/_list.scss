@@ -1,0 +1,66 @@
+.list {
+  &-body {
+    margin-bottom: 1rem;
+    @include query-for(desktop) {
+      margin-bottom: 2rem;
+    }
+  }
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    background: color(grey, lightest);
+    padding: .75rem;
+    border: 1px solid color(grey, dark);
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid color(grey, dark);
+    border-top: none;
+    color: color(grey, darkest);
+    padding: .75rem;
+    text-decoration: none;
+    transition: all 200ms ease;
+
+    &__title {
+      margin: 0;
+      word-wrap: break-all;
+    }
+
+    &__sub-title {
+      color: color(grey, darker);
+      font-size: 1.6rem;
+    }
+
+    &__data {
+      margin: .5rem 0 0 0;
+      @include query-for(desktop) {
+        margin: 0;
+        padding-left: .5rem;
+      }
+    }
+
+    &--message {
+      align-items: center;
+      justify-content: center;
+      color: color(grey, darker);
+      padding: 1rem;
+      &:hover {
+        background: none;
+      }
+    }
+
+    &:hover {
+      background: color(grey, lightest);
+    }
+
+    @include query-for(desktop) {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 1rem;
+      align-items: center;
+    }
+  }
+}

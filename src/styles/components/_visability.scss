@@ -1,0 +1,11 @@
+.show-mobile {
+  @media (min-width: $desktop) {
+    display: none;
+  }
+}
+
+.show-desktop {
+  @media (max-width: $desktop) {
+    display: none;
+  }
+}
