@@ -84,6 +84,19 @@ For the application to run with backend validation, enter the database tab on th
 
 There should now be a connection between your local machine and firebase, with working authentication.
 
+## Running the application
+
+To run the application, for local server in development
+```
+npm run dev  
+```
+To run a built application
+```
+npm run build:prod  
+and  
+npm run start  
+```
+
 ## Running the tests
 
 For running the test suite, in your preferable terminal, navigate to the project, and write:
